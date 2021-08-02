@@ -7,13 +7,13 @@ plugins {
     java
     idea
     `maven-publish`
-    id("fabric-loom") version "0.4-SNAPSHOT"
+    id("fabric-loom") version "0.9.9"
     id("com.matthewprenger.cursegradle") version "1.4.0"
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_16
+    targetCompatibility = JavaVersion.VERSION_16
 }
 
 base {
@@ -23,21 +23,22 @@ base {
 repositories {
     mavenCentral()
     jcenter()
-    maven(url = "http://maven.fabricmc.net")
+    maven(url = "https://maven.fabricmc.net")
+    maven(url = "https://maven.terraformersmc.com/")
 }
 
-version = "2.1.0+mc1.16.1"
+version = "2.1.0z+mc1.17.1"
 group = "me.sargunvohra.mcmods"
 
 minecraft {
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.16.1")
-    mappings("net.fabricmc:yarn:1.16.1+build.18:v2")
-    modImplementation("net.fabricmc:fabric-loader:0.8.8+build.202")
+    minecraft("com.mojang:minecraft:1.17.1")
+    mappings("net.fabricmc:yarn:1.17.1+build.32:v2")
+    modImplementation("net.fabricmc:fabric-loader:0.11.6")
 
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.14.0+build.371-1.16")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.37.1+1.17")
 
     listOf(
         "me.shedaniel.cloth:config-2:4.5.6",
@@ -47,7 +48,7 @@ dependencies {
         include(it)
     }
 
-    modCompile("io.github.prospector:modmenu:1.12.2+build.17")
+    modCompileOnly("com.terraformersmc:modmenu:2.0.4")
 }
 
 val processResources = tasks.getByName<ProcessResources>("processResources") {
@@ -81,7 +82,7 @@ curseforge {
     project(closureOf<CurseProject> {
         id = "318163"
         releaseType = "release"
-        addGameVersion("1.16.1")
+        addGameVersion("1.17.1")
         addGameVersion("Fabric")
         relations(closureOf<CurseRelation> {
             requiredDependency("fabric-api")

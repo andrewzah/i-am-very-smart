@@ -53,7 +53,7 @@ public class ReloadListener implements SimpleSynchronousResourceReloadListener {
     }
 
     @Override
-    public void apply(ResourceManager resourceManager) {
+    public void reload(ResourceManager resourceManager) {
         matcher = new ComposedMatcher(
             buildMatcher(resourceManager, "include_recipes.json"),
             buildMatcher(resourceManager, "exclude_recipes.json")

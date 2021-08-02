@@ -30,7 +30,7 @@
         "iamverysmart.mixins.json"
     ],
     "depends": {
-        "minecraft": "1.16.x",
+        "minecraft": "1.17.x",
         "fabricloader": ">=0.8.0",
         "fabric": ">=0.14.0",
         "autoconfig1u": ">=3.2.0-"
